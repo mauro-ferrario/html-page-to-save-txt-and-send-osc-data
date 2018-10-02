@@ -48,7 +48,7 @@ function getDataArray(){
 function onGetDataFromUrl(body){
     const updateDate = getUpdateDate(body);
     const time = Date(Date.now()).toString();
-    if(updateDate != lastUpdateDate && getTotLink(body) > 1){
+    if(updateDate != lastUpdateDate && getTotLinks(body) > 1){
         console.log("----" +time +" - New data loaded");
         const folderName = updateDate.replace(' ','--').replace(':','-');
         createNewFolder(folderName);
@@ -59,7 +59,7 @@ function onGetDataFromUrl(body){
     setTimeout(getDataArray, delayForNewDataInSeconds*1000);
 }
 
-function getTotLink(body){
+function getTotLinks(body){
     const indexOfFirstAlign = body.indexOf('align="right">')+24;
     let textToCheck = body.substring(indexOfFirstAlign);
     return (textToCheck.match(/href=/g) || []).length;
@@ -68,7 +68,7 @@ function getTotLink(body){
 function getFilesUrl(body){
     const indexOfFirstAlign = body.indexOf('align="right">')+24;
     let textToCheck = body.substring(indexOfFirstAlign);
-    const count = getTotLink(body);
+    const count = getTotLinks(body);
     let urls = [];
     if(count > 0){
         for(let a = 0; a < count; a++){
