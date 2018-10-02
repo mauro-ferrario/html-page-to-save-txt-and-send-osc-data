@@ -1,1 +1,1 @@
-Get data from html URL and redirect to OSC output.
+Get data from html URL, fetch the link to txt files, download them, fetch them and redirect the data to OSC output.
