@@ -1,0 +1,9 @@
+{
+    "serverPort" : "8000",
+    "ipToSend" : "0.0.0.0",
+    "receivePort": "55555",
+    "sendPort": "12345",
+    "delayForNewDataInSeconds": "20",
+    "delayToSendOscInSeconds": "1",
+    "oscAddress": "/charge"
+}
